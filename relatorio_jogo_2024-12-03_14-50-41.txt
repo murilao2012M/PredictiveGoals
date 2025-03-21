@@ -1,0 +1,13 @@
+Relatório de Análise: f vs vc
+==================================================
+Gerado em: 03/12/2024 14:50:41
+
+⚽ Desempenho Ofensivo:
+f: 0.80 gols/jogo
+vc: 0.27 gols/jogo
+
+🛡️ Desempenho Defensivo:
+f: 0.80 gols sofridos/jogo
+vc: 1.07 gols sofridos/jogo
+
+📊 Forma Recente (Últimos 5 Jogos):

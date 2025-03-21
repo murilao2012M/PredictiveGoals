@@ -1,0 +1,36 @@
+Relatório de Análise: Santa Fe vs Bucaramanga
+==================================================
+
+⚽ Desempenho Ofensivo:
+Santa Fe: 0.96 gols/jogo
+Bucaramanga: 0.88 gols/jogo
+
+🛡️ Desempenho Defensivo:
+Santa Fe: 0.88 gols sofridos/jogo
+Bucaramanga: 0.64 gols sofridos/jogo
+
+⚔️ Estatísticas de Confrontos Diretos (H2H):
+Total_jogos: 2
+Vitorias_a_mandante: 0
+Vitorias_a_visitante: 0
+Vitorias_b_mandante: 0
+Vitorias_b_visitante: 0
+Empates: 2
+Media_gols_a: 1.5
+Media_gols_b: 1.5
+Prob_vitoria_a: 0.0
+Prob_empate: 100.0
+Prob_vitoria_b: 0.0
+
+🎲 Simulação de Partida: 1 x 1
+
+📈 Probabilidades de Mercado:
+Over/Under 0.5: 60.15% / 39.85%
+Over/Under 1.5: 23.48% / 76.52%
+Over/Under 2.5: 6.62% / 93.38%
+Over/Under 3.5: 1.45% / 98.55%
+Over/Under 4.5: 0.26% / 99.74%
+Over/Under 5.5: 0.04% / 99.96%
+Over/Under 6.5: 0.00% / 100.00%
+Over/Under 7.5: 0.00% / 100.00%
+Over/Under 8.5: 0.00% / 100.00%
