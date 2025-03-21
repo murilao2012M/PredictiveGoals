@@ -1,0 +1,11 @@
+Bibliotecas Necessárias para a Execução do Programa
+
+numpy
+pandas
+matplotlib
+scipy
+scikit-learn
+xgboost
+shap
+Pillow
+openpyxl
