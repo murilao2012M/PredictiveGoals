@@ -12,7 +12,7 @@ from sklearn.metrics import classification_report, accuracy_score, confusion_mat
 from sklearn.ensemble import RandomForestClassifier
 from xgboost import XGBClassifier
 
-from modules import gerar_ranking
+from modules.gerar_ranking import gerar_ranking
 from modules.gerar_relatorio import gerar_relatorio
 from modules.simular_cenario import simular_cenario  # Modelo adicional
 
