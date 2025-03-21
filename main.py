@@ -11,8 +11,6 @@ from sklearn.model_selection import cross_val_score, train_test_split, KFold
 from sklearn.metrics import classification_report, accuracy_score, confusion_matrix
 from sklearn.ensemble import RandomForestClassifier
 from xgboost import XGBClassifier
-
-from modules.gerar_ranking import gerar_ranking
 from modules.gerar_relatorio import gerar_relatorio
 from modules.simular_cenario import simular_cenario  # Modelo adicional
 
@@ -938,28 +936,26 @@ def main():
             mostrar_escudo_do_time(mandante)
             mostrar_escudo_do_time(visitante)
         elif escolha == "8":
-            gerar_ranking(dados['dados_partidas'])
-        elif escolha == "9":
             exibir_xg(team_a, team_b)
-        elif escolha == "10":
+        elif escolha == "9":
             gols = int(input("\nInforme o número de gols para calcular a recorrência: "))
             qual_time = input("Escolha o time para cálculo (A/B): ").strip().upper()
             recorrencia = calcular_recorrencia_gols(gols, team_a.golsMarcados if qual_time == "A" else team_b.golsMarcados)
             print(f"\n🔢 Probabilidade de {gols} gols: {recorrencia * 100:.2f}%")
-        elif escolha == "11":
+        elif escolha == "10":
             team_a.simular_partida_monte_carlo(team_b, n_simulacoes=50)
-        elif escolha == "12":
+        elif escolha == "11":
             explicar_modelo_shap(modelo_rf, df_preparado, model_name="RandomForest")
             explicar_modelo_shap(modelo_xgb, df_preparado, model_name="XGBoost")
-        elif escolha == "13":
+        elif escolha == "12":
             gols_a, gols_b = simulate_match_with_variation(team_a, team_b, base_confidence=1.0)
             print(f"\n⚽ Simulação Avançada com Variação: {team_a.name} {gols_a} x {team_b.name} {gols_b}")
             expected_a, expected_b = compute_basic_expected_values(team_a, team_b)
             prob_score = compute_score_probability(expected_a, expected_b, gols_a, gols_b)
             print(f"📊 Probabilidade: {prob_score*100:.2f}%")
-        elif escolha == "14":
+        elif escolha == "13":
             validar_simulacoes(team_a, num_simulacoes=1000)
-        elif escolha == "15":
+        elif escolha == "14":
             n_matches = int(input("\nQuantos jogos na temporada? (ex.: 38): "))
             pontos, saldo, resultados = simulate_season(team_a, n_matches=n_matches)
             print(f"\n🏆 Temporada simulada para {team_a.name}: {pontos} pontos, Saldo de gols: {saldo}")
@@ -967,26 +963,26 @@ def main():
             if export_choice == "s":
                 rel_data = [{"Jogo": i+1, "Placar": f"{r[0]} (resultado: {r[1]})"} for i, r in enumerate(resultados)]
                 export_simulation_report(rel_data, filename=f"temporada_{team_a.name}.csv")
-        elif escolha == "16":
+        elif escolha == "15":
             print("\n📤 Exportando relatório...")
             rel_choice = input("Deseja exportar histórico de simulações? (s/n): ").strip().lower()
             if rel_choice == "s":
                 export_simulation_report(historico_simulacoes, filename="historico_simulacoes.csv")
             else:
                 print("❌ Nenhum relatório exportado.")
-        elif escolha == "17":
+        elif escolha == "16":
             injury_factor = float(input("\nInforme o fator de redução (ex.: 0.8 para 20% de redução no ataque): "))
             adjusted = simulate_injury_impact(team_a, injury_factor=injury_factor)
             print(f"Nova média ofensiva de {team_a.name} com lesão: {adjusted:.2f}")
-        elif escolha == "18":
+        elif escolha == "17":
             param = input("\nParâmetro a variar (ex.: home_advantage): ").strip()
             values = list(map(float, input("Informe os valores (separados por vírgula, ex.: 0.05,0.1,0.15): ").split(",")))
             sensitivity_analysis(team_a, team_b, param_name=param, values=values)
-        elif escolha == "19":
+        elif escolha == "18":
             registrar_resultado_simulacao()
-        elif escolha == "20":
+        elif escolha == "19":
             exibir_registros_simulacoes()
-        elif escolha == "21":
+        elif escolha == "20":
             # Previsão de resultado utilizando a Distribuição de Poisson
             media_total = float(input("\nInforme a média de gols esperada (λ): "))
             max_gols = int(input("Informe o número máximo de gols a considerar: "))
@@ -994,21 +990,21 @@ def main():
             print("\nProbabilidades calculadas pela Distribuição de Poisson:")
             for k, prob in probs.items():
                 print(f"Golos = {k}: {prob*100:.2f}%")
-        elif escolha == "22":
+        elif escolha == "21":
             # Previsão utilizando a Distribuição Skellam para diferença de gols
             lambda_a = float(input("\nInforme o λ do time A (média de gols): "))
             lambda_b = float(input("Informe o λ do time B (média de gols): "))
             diff = int(input("Informe a diferença de gols desejada (pode ser negativa): "))
             prob_diff = skellam_distribution_probability(lambda_a, lambda_b, diff)
             print(f"\nProbabilidade de uma diferença de {diff} gols: {prob_diff*100:.2f}%")
-        elif escolha == "23":
+        elif escolha == "22":
             # Atualização de Rating Elo
             current_rating = float(input("\nInforme o rating atual do time: "))
             opponent_rating = float(input("Informe o rating do adversário: "))
             result = float(input("Resultado (1 para vitória, 0.5 para empate, 0 para derrota): "))
             new_rating = update_elo_rating(current_rating, opponent_rating, result)
             print(f"\nNovo rating atualizado: {new_rating:.2f}")
-        elif escolha == "24":
+        elif escolha == "23":
             # Previsão via modelo de regressão (placeholder)
             features = input("\nInforme os features separados por vírgula (ex.: 1.2,0.8,1.0): ")
             features = list(map(float, features.split(",")))
