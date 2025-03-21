@@ -1,5 +1,3 @@
-Bibliotecas Necessárias para a Execução do Programa
-
 numpy
 pandas
 matplotlib
